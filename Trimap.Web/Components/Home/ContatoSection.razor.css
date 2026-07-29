@@ -1,67 +1,161 @@
 .contato-section {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 2rem;
-    max-width: var(--max-width);
-    margin: 0 auto;
     padding: 6rem clamp(1rem, 4vw, 3rem);
+    color: var(--color-surface);
+    background:
+        radial-gradient(circle at 8% 20%, rgba(249, 115, 22, 0.26), transparent 30%),
+        linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 58%, #062844 100%);
 }
 
-.contato-section address {
+.contato-section__content {
     display: grid;
-    gap: 0.35rem;
-    margin-top: 2rem;
-    color: var(--color-muted);
+    grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.72fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: stretch;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.contato-section .section-heading {
+    max-width: 760px;
+}
+
+.contato-section .section-heading span {
+    color: var(--color-accent);
+}
+
+.contato-section .section-heading h2 {
+    color: var(--color-surface);
+}
+
+.contato-section .section-heading p {
+    max-width: 640px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: clamp(1rem, 2vw, 1.16rem);
+}
+
+.contato-section__info {
+    display: grid;
+    gap: 2rem;
+}
+
+.contato-section__actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.contato-card,
+.contato-section__address {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(14px);
+}
+
+.contato-card {
+    display: flex;
+    min-height: 132px;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.15rem;
+    color: var(--color-surface);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.contato-card:hover,
+.contato-card:focus-visible {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(249, 115, 22, 0.72);
+    outline: none;
+    transform: translateY(-3px);
+}
+
+.contato-card--featured {
+    color: var(--color-primary-dark);
+    background: var(--color-accent);
+    border-color: transparent;
+}
+
+.contato-card--featured:hover,
+.contato-card--featured:focus-visible {
+    background: #ff8a2a;
+}
+
+.contato-card__icon {
+    display: grid;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    color: var(--color-primary-dark);
+    background: var(--color-surface);
+    border-radius: 16px;
+    font-size: 1.35rem;
+}
+
+.contato-card strong,
+.contato-card small {
+    display: block;
+}
+
+.contato-card strong {
+    font-size: 1rem;
+}
+
+.contato-card small {
+    margin-top: 0.25rem;
+    color: currentColor;
+    font-size: 0.98rem;
+    opacity: 0.82;
+    overflow-wrap: anywhere;
+}
+
+.contato-section__address {
+    display: grid;
+    align-content: center;
+    gap: 0.45rem;
+    min-height: 100%;
+    margin: 0;
+    padding: clamp(1.5rem, 4vw, 2.4rem);
+    color: var(--color-primary-dark);
+    background: var(--color-surface);
+    border-radius: 32px;
     font-style: normal;
 }
 
-.contato-section address strong {
-    margin-top: 0.8rem;
-    color: var(--color-primary-dark);
-}
-
-.contato-section__form {
-    display: grid;
-    gap: 1rem;
-    padding: clamp(1.25rem, 4vw, 2rem);
-    background: var(--color-soft);
-    border-radius: 30px;
-}
-
-.contato-section__form label {
-    display: grid;
-    gap: 0.45rem;
-    color: var(--color-primary-dark);
-    font-weight: 800;
-}
-
-.contato-section__form input,
-.contato-section__form textarea {
-    width: 100%;
-    padding: 0.9rem 1rem;
-    border: 1px solid rgba(15, 91, 148, 0.2);
-    border-radius: 16px;
-    outline: none;
-}
-
-.contato-section__form input:focus,
-.contato-section__form textarea:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 4px rgba(15, 91, 148, 0.12);
-}
-
-.contato-section__form button {
-    padding: 1rem 1.25rem;
-    color: var(--color-primary-dark);
-    cursor: pointer;
-    background: var(--color-accent);
-    border: 0;
+.contato-section__address-label {
+    width: fit-content;
+    padding: 0.35rem 0.75rem;
+    color: var(--color-surface);
+    background: var(--color-primary-dark);
     border-radius: 999px;
+    font-size: 0.78rem;
     font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.contato-section__address strong {
+    margin-top: 0.65rem;
+    color: var(--color-primary-dark);
+    font-size: clamp(1.35rem, 3vw, 2rem);
+    line-height: 1.15;
+}
+
+.contato-section__address span:last-child {
+    color: var(--color-muted);
+    font-size: 1.05rem;
 }
 
 @media (max-width: 860px) {
-    .contato-section {
+    .contato-section__content,
+    .contato-section__actions {
         grid-template-columns: 1fr;
+    }
+
+    .contato-card {
+        min-height: auto;
     }
 }
